@@ -2,14 +2,34 @@ import { User } from "./src/models/User";
 import { Op } from "sequelize";
 
 let users = User.findAll({
-  where: {
-    age: {
-      [Op.gte]: 1,
-    },
-  },
-  offset: 0,
-  limit: 2,
-
+  // 1. Dados a resem alterados
+  // 2. Condição para encontrar o(os) item(ns)
+  // await User.update(
+  //   { name: "Sr Bonieky", age: 91 },
+  //   {
+  //     where: {
+  //       id: 4,
+  //     },
+  //   }
+  // );
+  //atualizar todos menores de 18 para 18 anos
+  //   await User.update(
+  //     { age: 18 },
+  //     {
+  //       where: {
+  //         age: {
+  //           [Op.lt]: 18,
+  //         },
+  //       },
+  //     }
+  //   );
+  // where: {
+  //   age: {
+  //     [Op.gte]: 1,
+  //   },
+  // },
+  // offset: 0,
+  // limit: 2,
   // where: {
   //   age: {
   //     [Op.gte]: 18,
