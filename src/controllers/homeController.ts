@@ -5,6 +5,21 @@ import { Product } from "../models/Product";
 import { User } from "../models/User";
 
 export const home = async (req: Request, res: Response) => {
+  //create
+  const user = await User.create({
+    name: "Ciclano",
+    age: 39,
+  });
+  console.log(user.name, user.age);
+
+  //build + save
+  // const user = User.build({
+  //   name: "Fulaninho",
+  //   age: 25,
+  // });
+
+  // await user.save();
+
   let age: number = 90;
   let showOld: boolean = false;
 
