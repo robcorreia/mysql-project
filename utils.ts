@@ -2,6 +2,17 @@ import { User } from "./src/models/User";
 import { Op } from "sequelize";
 
 let users = User.findAll({
+  // let results = await User.findAll({
+  //   where: {
+  //     id: 7,
+  //   },
+  // });
+  // if (results.length > 0) {
+  //   let usuario = results[0];
+  //   usuario.name = "Testador alterado";
+  //   usuario.age = 70;
+  //   await usuario.save();
+  // }
   // 1. Dados a resem alterados
   // 2. Condição para encontrar o(os) item(ns)
   // await User.update(
