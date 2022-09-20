@@ -60,11 +60,9 @@ export const diminuirIdade = async (req: Request, res: Response) => {
 export const excluir = async (req: Request, res: Response) => {
   let id: string = req.params.id;
 
-  let results = await User.findAll({ where: { id } });
-  if (results.length > 0) {
-    let usuario = results[0];
-    await usuario.destroy();
-  }
+  await User.destroy({
+    where: { id },
+  });
 
   res.redirect("/");
 };
