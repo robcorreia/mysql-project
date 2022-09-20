@@ -5,18 +5,19 @@ import { Product } from "../models/Product";
 import { User } from "../models/User";
 
 export const home = async (req: Request, res: Response) => {
-  let results = await User.findAll({
-    where: {
-      id: 7,
-    },
-  });
-
+  let results = await User.findAll({ where: { name: "Ciclano" } });
   if (results.length > 0) {
     let usuario = results[0];
-    usuario.name = "Testador alterado";
-    usuario.age = 70;
-    await usuario.save();
+    await usuario.destroy();
   }
+
+  // await User.destroy({
+  //   where: {
+  //     age: {
+  //       [Op.lte]: 18,
+  //     },
+  //   },
+  // });
 
   let users = await User.findAll();
 
