@@ -5,19 +5,29 @@ import { Product } from "../models/Product";
 import { User } from "../models/User";
 
 export const home = async (req: Request, res: Response) => {
-  let results = await User.findAll({ where: { name: "Ciclano" } });
-  if (results.length > 0) {
-    let usuario = results[0];
-    await usuario.destroy();
-  }
+  const [usuario, created] = await User.findOrCreate({
+    where: { name: "Bonieky" },
+    defaults: { age: 80 },
+  });
 
-  // await User.destroy({
+  console.log("USUARIO", usuario);
+  console.log("CRIADO", created);
+
+  // let usuario = await User.findByPk(2);
+
+  // let usuario = await User.findOne({
   //   where: {
-  //     age: {
-  //       [Op.lte]: 18,
-  //     },
+  //     id: 1,
   //   },
   // });
+
+  // if (usuario) {
+  //   console.log(`O usuario ${usuario.name} possui ${usuario.age} anos.`);
+  // } else {
+  //   console.log("Usuário não encontrado");
+  // }
+
+  console.log(usuario);
 
   let users = await User.findAll();
 

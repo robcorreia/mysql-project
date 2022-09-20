@@ -2,6 +2,13 @@ import { User } from "./src/models/User";
 import { Op } from "sequelize";
 
 let users = User.findAll({
+  // await User.destroy({
+  //   where: {
+  //     age: {
+  //       [Op.lte]: 18,
+  //     },
+  //   },
+  // });
   // let results = await User.findAll({
   //   where: {
   //     id: 7,
