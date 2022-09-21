@@ -2,6 +2,24 @@ import { User } from "./src/models/User";
 import { Op } from "sequelize";
 
 let users = User.findAll({
+  // const [usuario, created] = await User.findOrCreate({
+  //   where: { name: "Bonieky" },
+  //   defaults: { age: 80 },
+  // });
+  // console.log("USUARIO", usuario);
+  // console.log("CRIADO", created);
+  // let usuario = await User.findByPk(2);
+  // let usuario = await User.findOne({
+  //   where: {
+  //     id: 1,
+  //   },
+  // });
+  // if (usuario) {
+  //   console.log(`O usuario ${usuario.name} possui ${usuario.age} anos.`);
+  // } else {
+  //   console.log("Usuário não encontrado");
+  // }
+  // console.log(usuario);
   // await User.destroy({
   //   where: {
   //     age: {
