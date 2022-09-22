@@ -17,16 +17,31 @@ export const User = sequelize.define<UserInstance>(
     },
     name: {
       type: DataTypes.STRING,
+    },
+    lastName: {
+      type: DataTypes.VIRTUAL,
+    },
+    fullName: {
+      type: DataTypes.VIRTUAL,
       get() {
-        return this.getDataValue("name").toUpperCase();
+        let name: string = this.getDataValue("name");
+        let lastName: string = this.getDataValue("lastName");
+
+        return `${name} ${lastName}`;
       },
     },
+    // firstLetterOfName: {
+    //   type: DataTypes.VIRTUAL,
+    //   get() {
+    //     let name: string = this.getDataValue("name");
+    //     return name.charAt(0);
+    //   },
+    // },
     age: {
       type: DataTypes.INTEGER,
       defaultValue: 18,
       set(value: number) {
-        let newAge: number = value;
-        if (newAge < 18) {
+        if (value < 18) {
           value = 18;
         }
         this.setDataValue("age", value);
